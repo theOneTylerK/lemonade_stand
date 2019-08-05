@@ -6,13 +6,20 @@ using System.Threading.Tasks;
 
 namespace lemonadeStand
 {
-
-//member variables (Has A)
-
-//Constructor (Spawner)
-    class Player
+   abstract class Player
     {
+   //member variables (Has A)
+
+   //Constructor (Spawner)
+
+
+   //Member Methods (Can Do)
+        public abstract void MakePurchase();
+
+        public abstract int SetRecipe(int lemons, int sugar, int ice);
+
+        public abstract void SetPrice();
+        
     }
 
-//Member Methods (Can Do)
 }

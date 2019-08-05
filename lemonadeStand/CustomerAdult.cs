@@ -6,7 +6,21 @@ using System.Threading.Tasks;
 
 namespace lemonadeStand
 {
-    class CustomerTed
+    class CustomerAdult : Customer
     {
+        //member variables (Has A)
+
+        //Constructor (Spawner)
+        public CustomerAdult()
+        {
+            this.Cash = 2.00;
+            this.WillBuy = 40;
+        }
+
+        //member methods (Can Do)
+        public override void BuyLemonade()
+        {
+         
+        }
     }
 }
