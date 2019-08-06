@@ -14,11 +14,13 @@ namespace lemonadeStand
         public int Temperature;
         public string WeatherForcast;
         public double profits;
+        private Random rng;
         //Constructor (Spawner)
 
         public Game()
         {
             this.Temperature = Temperature;
+            rng = new Random();
         }
 
         //Member Methods (Can Do)
@@ -56,8 +58,11 @@ namespace lemonadeStand
         public void StartGame()
         {
             ChooseGameLength();
-            Weather weather = new Weather();
-            weather.GetWeatherReport();
+            for (int i = 0; i < 7; i++)
+            {
+                Weather weather = new Weather(rng);
+
+            }
             Console.ReadLine();
         }
 

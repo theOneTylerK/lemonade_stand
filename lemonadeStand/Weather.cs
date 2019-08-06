@@ -9,20 +9,28 @@ namespace lemonadeStand
     class Weather
     {
         //member variables (Has A)
-        public int Temperature;
-        Random rng = new Random();
+        public int forcastTemperature;
+        public int actualTemperature;
+        public string forcastOvercast;
+        public string actualOvercast;
+        Random rng;
         List<string> overcast = new List<string>();
+        
 
 
         //Constructor (Spawner)
-        public Weather()
+        public Weather(Random r)
         {
+            rng = r;
             overcast.Add("Sunny");
             overcast.Add("Partly Sunny");
             overcast.Add("Cloudy");
             overcast.Add("Partly Cloudy");
             overcast.Add("Rainy");
-            this.Temperature = Temperature;
+
+            GetWeatherForcast();
+            GetActualWeather();
+            
         }
         
         
@@ -32,8 +40,8 @@ namespace lemonadeStand
         public int ChooseTemperature(int min, int max)
         {
 
-            int CurrentTemp = rng.Next(min, max);
-            return CurrentTemp;
+            int TempChoice = rng.Next(min, max);
+            return TempChoice;
 
         }
 
@@ -66,11 +74,32 @@ namespace lemonadeStand
             return OvercastChoice;
         }
 
-        public void GetWeatherReport()
+        public void GetWeatherForcast()
         {
-            string Overcast = ChooseOvercast();
-            int Temp = ChooseTemperature(50, 99);
-            Console.WriteLine("Temperature: " + Temp + Environment.NewLine + "Overcast: " + Overcast);
+            forcastOvercast = ChooseOvercast();
+            forcastTemperature = ChooseTemperature(50, 99);
+            DisplayWeatherForcast();
+            Console.ReadLine();
+        }
+
+        public void GetActualWeather()
+        {
+            actualOvercast = forcastOvercast;
+            actualTemperature = ChooseTemperature(forcastTemperature -5, forcastTemperature + 6);
+            DisplayActualWeather();
+            Console.ReadLine();
+            
+        }
+
+        public void DisplayWeatherForcast()
+        {
+            Console.WriteLine("Weather Forecast " + Environment.NewLine + "Temperature: " 
+                + forcastTemperature + Environment.NewLine + "Overcast: " + forcastOvercast);
+        }
+        public void DisplayActualWeather()
+        {
+            Console.WriteLine("Current Weather " + Environment.NewLine + "Temperature: "
+                + actualTemperature + Environment.NewLine + "Overcast: " + actualOvercast);
         }
     }
 }
