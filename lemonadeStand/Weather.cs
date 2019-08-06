@@ -13,22 +13,21 @@ namespace lemonadeStand
         public int actualTemperature;
         public string forcastOvercast;
         public string actualOvercast;
-        Random rng;
+        Random rng = new Random();
         List<string> overcast = new List<string>();
         
 
 
         //Constructor (Spawner)
-        public Weather(Random r)
+        public Weather()
         {
-            rng = r;
             overcast.Add("Sunny");
             overcast.Add("Partly Sunny");
             overcast.Add("Cloudy");
             overcast.Add("Partly Cloudy");
             overcast.Add("Rainy");
 
-            GetWeatherForcast();
+           
             
         }
         

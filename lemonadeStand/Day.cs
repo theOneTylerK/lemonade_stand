@@ -10,16 +10,26 @@ namespace lemonadeStand
     {
         //member variables (Has A)
         Random rng = new Random();
-       
+        public Weather weather = new Weather();
+
 
 
         //Constructor (Spawner)
         public Day()
         {
-            Weather weather = new Weather(rng);
+           
            
         }
 
         //member methods (Can Do)
+        public void ShowActualWeather()
+        {
+            weather.GetActualWeather();
+        }
+
+        public void ShowWeatherForcast()
+        {
+            weather.GetWeatherForcast();
+        }
     }
 }

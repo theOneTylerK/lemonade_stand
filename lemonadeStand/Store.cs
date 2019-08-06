@@ -68,17 +68,16 @@ namespace lemonadeStand
             return cart;
         }
 
-        public double TakePayment(Player player)
+        public void TakePayment(Player player)
         {
             if(player.Cash < cart)
             {
                 Console.WriteLine("You don't have enough money to buy all that. Please try again.");
                 SellItems(player);
             }
-            double MoneySpent = player.Cash - cart;
+            player.Cash -= cart;
             Console.WriteLine("You spent: " + cart
-                + Environment.NewLine + "Your total cash is " + MoneySpent);
-            return MoneySpent;
+                + Environment.NewLine + "Your total cash is " + player.Cash);
 
         }
 
