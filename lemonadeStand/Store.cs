@@ -42,7 +42,7 @@ namespace lemonadeStand
             Console.WriteLine("Cups are on sale for $0.02 per cup. How many cups would you like to buy?");
                 string userCups = Console.ReadLine();
                     double cupsSales = int.Parse(userCups) * cups;
-            Console.WriteLine("Ice is on sale for $1.25 per bag of 100 cubes. How much ice would you like to buy?");
+            Console.WriteLine("Ice is on sale for $1.25 per bag of 100 cubes. How many bags of ice would you like to buy?");
                 string userIce = Console.ReadLine();
                     double iceSales = int.Parse(userIce) * ice;
             cart = lemonSales + sugarSales + cupsSales + iceSales;
