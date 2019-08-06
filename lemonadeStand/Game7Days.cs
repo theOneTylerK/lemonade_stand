@@ -13,7 +13,10 @@ namespace lemonadeStand
         public int Temperature;
         public string WeatherForcast;
         public double profits;
-        private Random rng;
+        protected Random rng;
+        Store store = new Store();
+        protected Player player = new Human();
+        
         //Constructor (Spawner)
 
         public Game7Days()
@@ -21,15 +24,17 @@ namespace lemonadeStand
             this.Temperature = Temperature;
             rng = new Random();
             NumberOfDays = 7;
+            this.store = store;
+            
+
         }
 
         //Member Methods (Can Do)
-       
+
 
         public void ReplayGame()
         {
-            Console.WriteLine("Game Over. To play again with the same amount of days type 'yes'" 
-                + Environment.NewLine + "to choose a new game length enter 'exit'"
+            Console.WriteLine("Game Over. To play again with the same amount of days type 'yes'"
                 + Environment.NewLine + "to quit type 'quit'.");
             string UserInput = Console.ReadLine();
             switch (UserInput)
@@ -37,9 +42,6 @@ namespace lemonadeStand
                 case "yes":
                 case "ya":
                 case "yep":
-                    StartGame();
-                    break;
-                case "exit":
                     UserInterface newGame = new UserInterface();
                     newGame.ChooseGameLength();
                     break;
@@ -59,27 +61,21 @@ namespace lemonadeStand
 
         public double TrackProfits()
         {
-            
+
             return profits;
         }
 
-        public void StartGame()
+        public void StartGame(List<Day>totalDays)
         {
-        while(NumberOfDays > 0)
+            //setup
+            foreach (Day el in totalDays)
             {
-                Weather weather = new Weather(rng);
-                Human player = new Human();
-                player.MakePurchase();
-                Console.ReadLine();
-                NumberOfDays--;
-                   if(NumberOfDays == 0)
-                {
-                    break;
-                }
+
+
             }
-           
+
         }
 
     }
-    
+
 }

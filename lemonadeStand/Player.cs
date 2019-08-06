@@ -5,6 +5,7 @@
         //member variables (Has A)
         public string name;
         public double Cash;
+        public double newCash;
         Inventory inventory = new Inventory();
 
         //Constructor (Spawner)
@@ -18,7 +19,7 @@
 
 
         //Member Methods (Can Do)
-        public abstract void MakePurchase();
+        
 
         public abstract int SetRecipe(int lemons, int sugar, int ice);
 

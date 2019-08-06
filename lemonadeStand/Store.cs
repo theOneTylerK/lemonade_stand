@@ -23,38 +23,59 @@ namespace lemonadeStand
             this.ice = 1.25;
             this.cart = 0.00;
 
-            CalculateTotal();
-            TakePayment();
+            
+            
         }
 
-
-
-
-        //member methods (Can Do)
-        public double CalculateTotal()
+        public int SellLemons()
         {
-            Console.WriteLine("Lemons are on sale for $0.15 per lemon. How many lemons would you like to buy?");
-                string userLemons = Console.ReadLine();
-                    double lemonSales = int.Parse(userLemons) * lemons;
-            Console.WriteLine("Sugar is on sale for $0.10 per cup. How many cups of sugar would you like to buy?");
-                string userSugar = Console.ReadLine();
-                    double sugarSales = int.Parse(userSugar) * sugar;
-            Console.WriteLine("Cups are on sale for $0.02 per cup. How many cups would you like to buy?");
-                string userCups = Console.ReadLine();
-                    double cupsSales = int.Parse(userCups) * cups;
-            Console.WriteLine("Ice is on sale for $1.25 per bag of 100 cubes. How many bags of ice would you like to buy?");
-                string userIce = Console.ReadLine();
-                    double iceSales = int.Parse(userIce) * ice;
+            Console.WriteLine("Please enter how many lemons you would like to buy.");
+            int userLemons = int.Parse (Console.ReadLine());
+            //try
+            //{
+            //    userLemons = 
+            //}
+            return userLemons;
+        }
+        public int SellSugar()
+        {
+            Console.WriteLine("Please enter how many cups of sugar you would like to buy.");
+            int userSugar = int.Parse (Console.ReadLine());
+            return userSugar;
+        }
+        public int SellCups()
+        {
+            Console.WriteLine("Please enter how many cups you would like to buy.");
+            int userCups = int.Parse(Console.ReadLine());
+            return userCups;
+        }
+        public int SellIce()
+        {
+            Console.WriteLine("Please enter how many bags of ice you would like to buy.");
+            int userIce = int.Parse(Console.ReadLine());
+            return userIce;
+        }
+        //member methods (Can Do)
+        public double SellItems(Player player)
+        {
+                    double lemonSales = SellLemons() * lemons;
+                    double sugarSales = SellSugar() * sugar;
+                    double cupsSales = SellCups() * cups;
+                    double iceSales = SellIce() * ice;
             cart = lemonSales + sugarSales + cupsSales + iceSales;
             Console.WriteLine("Your total is " + cart);
             Console.ReadLine();
             return cart;
         }
 
-        public double TakePayment()
+        public double TakePayment(Player player)
         {
-            Human buyer = new Human();
-            double MoneySpent = buyer.Cash - cart;
+            if(player.Cash < cart)
+            {
+                Console.WriteLine("You don't have enough money to buy all that. Please try again.");
+                SellItems(player);
+            }
+            double MoneySpent = player.Cash - cart;
             Console.WriteLine("You spent: " + cart
                 + Environment.NewLine + "Your total cash is " + MoneySpent);
             return MoneySpent;

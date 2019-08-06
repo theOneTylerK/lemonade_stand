@@ -29,7 +29,6 @@ namespace lemonadeStand
             overcast.Add("Rainy");
 
             GetWeatherForcast();
-            GetActualWeather();
             
         }
         

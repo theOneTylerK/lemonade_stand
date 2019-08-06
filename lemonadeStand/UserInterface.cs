@@ -9,7 +9,9 @@ namespace lemonadeStand
     class UserInterface
     {
         //Member variables (has a)
-
+        List<Day> totalDays = new List<Day>();
+        Day el = new Day();
+        Game7Days game = new Game7Days();
         //Construtor (Spawner)
         public UserInterface()
         {
@@ -26,8 +28,14 @@ namespace lemonadeStand
             {
                 case "7":
                 case "seven":
-                    Game7Days game = new Game7Days();
-                    game.StartGame();
+                    totalDays.Add(el);
+                    totalDays.Add(el);
+                    totalDays.Add(el);
+                    totalDays.Add(el);
+                    totalDays.Add(el);
+                    totalDays.Add(el);
+                    totalDays.Add(el);                  
+                    game.StartGame(totalDays);
                     break;
             }
 
