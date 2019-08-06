@@ -16,6 +16,8 @@ namespace lemonadeStand
         //Member Methods (Can Do)
         public override void MakePurchase()
         {
+            Store store = new Store();
+            
             
         }
         public override int SetRecipe(int lemons, int sugar, int ice)

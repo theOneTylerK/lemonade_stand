@@ -9,7 +9,6 @@ namespace lemonadeStand
     class Game
     {
         //member variables (Has A)
-        public double StartingCash;
         public int NumberOfDays;
         public int Temperature;
         public string WeatherForcast;
@@ -58,11 +57,9 @@ namespace lemonadeStand
         public void StartGame()
         {
             ChooseGameLength();
-            for (int i = 0; i < 7; i++)
-            {
-                Weather weather = new Weather(rng);
-
-            }
+            Weather weather = new Weather(rng);
+            Human player = new Human();
+            player.MakePurchase();
             Console.ReadLine();
         }
 

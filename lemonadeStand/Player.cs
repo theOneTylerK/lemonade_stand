@@ -1,25 +1,29 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace lemonadeStand
+﻿namespace lemonadeStand
 {
-   abstract class Player
+    abstract class Player
     {
-   //member variables (Has A)
+        //member variables (Has A)
+        public string name;
+        public double Cash;
+        Inventory inventory = new Inventory();
 
-   //Constructor (Spawner)
+        //Constructor (Spawner)
+        public Player()
+        {
+            this.Cash = 20.00;
+            this.name = name;
+            //inventory = 0;
+
+        }
 
 
-   //Member Methods (Can Do)
+        //Member Methods (Can Do)
         public abstract void MakePurchase();
 
         public abstract int SetRecipe(int lemons, int sugar, int ice);
 
         public abstract void SetPrice();
-        
+
     }
 
 }
