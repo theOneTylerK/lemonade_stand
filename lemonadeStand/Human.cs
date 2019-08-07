@@ -14,6 +14,7 @@ namespace lemonadeStand
         //Constructor (Spawner)
         public Human()
         {
+            expenses = 0.00;
            
             
         }
@@ -58,6 +59,15 @@ namespace lemonadeStand
             double UserPrice = double.Parse(Console.ReadLine());
             return UserPrice;
            
+        }
+        public override double TrackExpenses(Store store)
+        {
+            expenses = store.cart;
+            return expenses;
+        }
+        public override void DepsoitSales()
+        {
+            Cash += sales;
         }
     }
 }

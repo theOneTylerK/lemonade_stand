@@ -61,10 +61,16 @@ namespace lemonadeStand
 
         }
 
-        public  double TrackProfits()
+        public  double TrackDailyMoney()
         {
+            double dailyExpenses = player.Cash - player.TrackExpenses(store);
+            Console.WriteLine($"Your daily expenses were {dailyExpenses}");
+            double dailyIncome = player.sales;
+            Console.WriteLine($"Your daily income was {dailyIncome}");
+            double endResult = dailyIncome - dailyExpenses;
+            return endResult;
 
-            return profits;
+
         }
 
         public void GetDays()
@@ -102,6 +108,7 @@ namespace lemonadeStand
                         break;
                     }
                 }
+                player.DepositSales();
                 ReportResults();
                 Console.ReadLine();
 

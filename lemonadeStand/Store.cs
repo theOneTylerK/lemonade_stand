@@ -39,6 +39,7 @@ namespace lemonadeStand
             else
             {
                 player.Cash -= totalPrice;
+                cart = totalPrice;
                 DisplayMoneySpent(totalPrice, player.Cash);
                 
             }

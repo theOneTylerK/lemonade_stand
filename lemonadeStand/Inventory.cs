@@ -9,10 +9,10 @@ namespace lemonadeStand
     class Inventory
     {
         //member variables (Has A)
-        public int stockLemons;
-        public int stockSugar;
-        public int stockCups;
-        public int stockIce;
+        public double stockLemons;
+        public double stockSugar;
+        public double stockCups;
+        public double stockIce;
 
 
         //Constructor (Spawner)
@@ -25,24 +25,14 @@ namespace lemonadeStand
         }
 
         //member methods (Can Do)
-        public void DisplayInventory(int stockItem, string itemName)
+        public void DisplayInventory(double stockItem, string itemName)
         {
             Console.WriteLine($"You have {stockItem} {itemName} in your inventory");
             Console.ReadLine();
             
         }
-        public void AddSugar(int sugarBought)
-        {
-            stockSugar += sugarBought;
-        }
-        public void AddCups(int cupsBought)
-        {
-            stockCups += cupsBought;
-        }
-        public void AddIce(int iceBought)
-        {
-            stockIce += iceBought;
-        }
+       
+        
 
         
     }
