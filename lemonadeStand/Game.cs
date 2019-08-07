@@ -42,9 +42,7 @@ namespace lemonadeStand
             switch (UserInput)
             {
                 case "yes":
-                case "ya":
-                case "yep":
-                    
+                    StartGame();
                     break;
                 case "quit":
                     Console.WriteLine("Thanks for playing. Goodbye.");
@@ -88,12 +86,12 @@ namespace lemonadeStand
             {
                 day.weather.GetWeatherForcast();
                 store.SellItems(player);
-                store.TakePayment(player);
+                player.ChooseIngredients();
                 day.weather.GetActualWeather();
                 Console.ReadLine();
 
             }
-
+            ReplayGame();
         }
 
     }

@@ -25,21 +25,23 @@ namespace lemonadeStand
         }
 
         //member methods (Can Do)
-        public int AddLemons()
+        public void DisplayInventory(int stockItem, string itemName)
         {
-            return stockLemons;
+            Console.WriteLine($"You have {stockItem} {itemName} in your inventory");
+            Console.ReadLine();
+            
         }
-        public int AddSugar()
+        public void AddSugar(int sugarBought)
         {
-            return stockSugar;
+            stockSugar += sugarBought;
         }
-        public int AddCups()
+        public void AddCups(int cupsBought)
         {
-            return stockCups;
+            stockCups += cupsBought;
         }
-        public int AddIce()
+        public void AddIce(int iceBought)
         {
-            return stockIce;
+            stockIce += iceBought;
         }
     }
 }

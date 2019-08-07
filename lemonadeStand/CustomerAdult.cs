@@ -13,7 +13,7 @@ namespace lemonadeStand
         //Constructor (Spawner)
         public CustomerAdult()
         {
-            this.Cash = 2.00;
+            this.Cash = 5.00;
             this.WillBuy = 40;
         }
 
