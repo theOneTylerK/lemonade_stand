@@ -20,6 +20,7 @@ namespace lemonadeStand
         public Weather weather = new Weather();
         
         
+        
         //Constructor (Spawner)
 
         public Game()
@@ -28,6 +29,7 @@ namespace lemonadeStand
             rng = new Random();
             NumberOfDays = 7;
             this.store = store;
+           
             
         }
 
@@ -86,8 +88,19 @@ namespace lemonadeStand
             {
                 day.weather.GetWeatherForcast();
                 store.SellItems(player);
-                player.ChooseIngredients();
+                player.DisplayRecipe(player.ChooseIngredientsLems(), player.ChooseIngredientsSug(), player.ChooseIngredientsIce());
                 day.weather.GetActualWeather();
+                int index = 0;
+            while(index < 100)
+                {
+                    day.GenerateCustomers();
+                    index++;
+                    if (index == 100)
+                    {
+                        break;
+                    }
+                }
+                
                 Console.ReadLine();
 
             }

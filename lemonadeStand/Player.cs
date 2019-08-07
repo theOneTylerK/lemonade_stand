@@ -6,6 +6,7 @@
         public string name;
         public double Cash;
         public Inventory inventory = new Inventory();
+        
 
         //Constructor (Spawner)
         public Player()
@@ -18,11 +19,13 @@
 
 
         //Member Methods (Can Do)
-        public abstract void ChooseIngredients();
+        public abstract int ChooseIngredientsLems();
+        public abstract int ChooseIngredientsSug();
+        public abstract int ChooseIngredientsIce();
 
-        public abstract int SetRecipe(int lemons, int sugar, int ice);
+        public abstract void DisplayRecipe(int lemons, int sugar, int ice);
 
-        public abstract void SetPrice();
+        public abstract double SetPrice();
 
     }
 
