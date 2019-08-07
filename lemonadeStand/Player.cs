@@ -6,7 +6,7 @@
         public string name;
         public double Cash;
         public Inventory inventory = new Inventory();
-        
+
 
         //Constructor (Spawner)
         public Player()

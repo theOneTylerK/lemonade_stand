@@ -9,19 +9,19 @@ namespace lemonadeStand
     abstract class Customer
     {
         //member variables (Has A)
-        public int WillBuy;
-        public double Cash;
+        public bool WillBuy;
+        public double spendingCash;
 
 
         //Constructor (Spawner)
         public Customer()
         {
-            this.Cash = Cash;
+            this.spendingCash = spendingCash;
             this.WillBuy = WillBuy;
             
         }
         //member methods (Can Do)
-        public abstract void BuyLemonade();
+        public abstract double BuyLemonade(double lemonadePrice);
 
     }
 }

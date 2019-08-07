@@ -13,15 +13,27 @@ namespace lemonadeStand
         //Constructor (Spawner)
         public CustomerChild()
         {
-            this.Cash = 0.20;
-            this.WillBuy = 75;
+            this.spendingCash = 0.20;
+            this.WillBuy = false;
         }
 
         //member methods (Can Do)
-        public override void BuyLemonade()
+        public override double BuyLemonade(double lemonadePrice)
         {
+            if (lemonadePrice > spendingCash)
+            {
+                WillBuy = false;
+                double sellprice = 0.00;
+                Console.WriteLine("Too Expensive");
+                return sellprice;
+            }
+            else
+            {
+                WillBuy = true;
+                Console.WriteLine("Yum");
+                return lemonadePrice;
+            }
 
-            
         }
     }
 }

@@ -57,6 +57,7 @@ namespace lemonadeStand
 
         public  void ReportResults()
         {
+            Console.WriteLine($"your total cash is now {player.Cash}");
 
         }
 
@@ -90,17 +91,18 @@ namespace lemonadeStand
                 store.SellItems(player);
                 player.DisplayRecipe(player.ChooseIngredientsLems(), player.ChooseIngredientsSug(), player.ChooseIngredientsIce());
                 day.weather.GetActualWeather();
+                var price = player.SetPrice();
                 int index = 0;
             while(index < 100)
                 {
-                    day.GenerateCustomers();
+                    day.GenerateCustomers(price, player);
                     index++;
                     if (index == 100)
                     {
                         break;
                     }
                 }
-                
+                ReportResults();
                 Console.ReadLine();
 
             }
