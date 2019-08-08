@@ -69,14 +69,13 @@ namespace lemonadeStand
             Console.WriteLine($"Your daily income was {dailyIncome}");
             double endResult = dailyIncome - dailyExpenses;
             Console.WriteLine($"Your total daily profit is {endResult}");
+            player.Cash += endResult;
 
 
         }
 
         public void GetDays()
         {
-            //Console.WriteLine("Please choose how many days you would like to play.");
-            //int userInput = int.Parse(Console.ReadLine());
             int userInput = UserInterface.GetUserDays();
             for (int i =0; i < userInput; i++)
             {
@@ -97,6 +96,7 @@ namespace lemonadeStand
                 day.weather.GetWeatherForcast();
                 store.SellItems(player);
                 player.DisplayRecipe(player.ChooseIngredientsLems(), player.ChooseIngredientsSug(), player.ChooseIngredientsIce());
+
                 day.weather.GetActualWeather();
                 var price = player.SetPrice();
                 int index = 0;
@@ -104,7 +104,7 @@ namespace lemonadeStand
                 {
                     day.GenerateCustomers(price, player, day);
                     index++;
-                    if (index == 100)
+                    if (index == 5)
                     {
                         break;
                     }
@@ -112,6 +112,7 @@ namespace lemonadeStand
                 player.DepositSales();
                 TrackDailyMoney();
                 ReportResults();
+                store.EmptyCart();
                 Console.ReadLine();
 
             }

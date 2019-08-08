@@ -43,6 +43,7 @@ namespace lemonadeStand
                 DisplayMoneySpent(totalPrice, player.Cash);
                 
             }
+            
 
             return itemToPurchase;
         }
@@ -68,6 +69,11 @@ namespace lemonadeStand
 
             Console.WriteLine("You spent: " + moneySpent
                 + Environment.NewLine + "Your total cash is " + playerCash);
+        }
+        public double EmptyCart()
+        {
+            cart = 0.00;
+            return cart;
         }
 
 
