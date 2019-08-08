@@ -18,7 +18,7 @@ namespace lemonadeStand
         }
 
         //member methods (Can Do)
-        public override double BuyLemonade(double lemonadePrice, Day day)
+        public override double BuyLemonade(double lemonadePrice, Day day, Random rng)
         {
             if (lemonadePrice > spendingCash)
             {
@@ -31,12 +31,12 @@ namespace lemonadeStand
             else
             {
 
-                return DecideToPurchase(day, lemonadePrice);
+                return DecideToPurchase(day, lemonadePrice, rng);
                 
             }
 
         }
-        public override double DecideToPurchase(Day day, double sellPrice)
+        public override double DecideToPurchase(Day day, double sellPrice, Random rng)
         {
             if (day.weather.actualTemperature >= 60)
             {
@@ -56,7 +56,7 @@ namespace lemonadeStand
                 }
                 
             }
-            if (day.weather.actualOvercast == "sunny")
+            if (day.weather.actualOvercast == "Sunny")
             {
                 int lowerThreshold = 0;
                 int upperThreshold = 101;

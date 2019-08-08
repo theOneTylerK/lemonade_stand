@@ -38,9 +38,6 @@ namespace lemonadeStand
 
         public  void ReplayGame()
         {
-            //Console.WriteLine("Game Over. To play again type 'yes'"
-            //    + Environment.NewLine + "to quit type 'quit'.");
-            //string UserInput = Console.ReadLine();
             string UserInput = UserInterface.GetUserReplay();
             switch (UserInput)
             {
@@ -64,15 +61,13 @@ namespace lemonadeStand
 
         public  void TrackDailyMoney()
         {
-            double dailyExpenses = player.TrackExpenses(store);
+            double dailyExpenses = Math.Round(player.TrackExpenses(store));
             Console.WriteLine($"Your daily expenses were {dailyExpenses}");
             double dailyIncome = player.sales;
             Console.WriteLine($"Your daily income was {dailyIncome}");
             double endResult = dailyIncome - dailyExpenses;
             Console.WriteLine($"Your total daily profit is {endResult}");
             player.Cash += endResult;
-
-
         }
 
         public void GetDays()
@@ -105,7 +100,7 @@ namespace lemonadeStand
                 {
                     day.GenerateCustomers(price, player, day, rng);
                     index++;
-                    if (index == 5)
+                    if (index == 100)
                     {
                         break;
                     }

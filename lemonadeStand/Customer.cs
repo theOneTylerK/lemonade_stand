@@ -11,7 +11,7 @@ namespace lemonadeStand
         //member variables (Has A)
         public int WillBuyChance;
         public double spendingCash;
-        protected Random rng = new Random();
+        
 
 
         //Constructor (Spawner)
@@ -22,8 +22,8 @@ namespace lemonadeStand
             
         }
         //member methods (Can Do)
-        public abstract double BuyLemonade(double lemonadePrice, Day day);
-        public abstract double DecideToPurchase(Day day, double sellPrice);
+        public abstract double BuyLemonade(double lemonadePrice, Day day, Random rng);
+        public abstract double DecideToPurchase(Day day, double sellPrice, Random rng);
 
     }
 }

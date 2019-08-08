@@ -18,7 +18,7 @@ namespace lemonadeStand
         }
 
         //member methods (Can Do)
-        public override double BuyLemonade(double lemonadePrice, Day day)
+        public override double BuyLemonade(double lemonadePrice, Day day, Random rng)
         {
             if (lemonadePrice > spendingCash)
             {
@@ -30,13 +30,13 @@ namespace lemonadeStand
             else
             {
 
-                return DecideToPurchase(day, lemonadePrice);
+                return DecideToPurchase(day, lemonadePrice, rng);
                 
 
             }
         }
 
-        public override double DecideToPurchase(Day day, double sellPrice)
+        public override double DecideToPurchase(Day day, double sellPrice, Random rng)
         {
             if (day.weather.actualTemperature >= 70)
             {
@@ -51,13 +51,13 @@ namespace lemonadeStand
                 }
                 else
                 {
-                    WillBuyChance = 50;
+                    Console.WriteLine("All these dang kids and their fancy, new drinks. For the last time, NO!");
                     sellPrice = 0.00;
                     return sellPrice;
                 }
 
             }
-            if (day.weather.actualOvercast == "sunny")
+            if (day.weather.actualOvercast == "Sunny")
             {
                 int lowerThreshold = 0;
                 int upperThreshold = 101;
@@ -74,7 +74,7 @@ namespace lemonadeStand
                     return 0.00;
                 }
             }
-            else if (day.weather.actualOvercast == "rainy")
+            else if (day.weather.actualOvercast == "Rainy")
             {
                 int lowerThreshold = 0;
                 int upperThreshold = 101;
@@ -87,6 +87,7 @@ namespace lemonadeStand
                 }
                 else
                 {
+                    Console.WriteLine("All these dang kids and their fancy, new drinks. For the last time, NO!");
                     return 0.00;
 
                 }

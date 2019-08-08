@@ -15,11 +15,55 @@ namespace lemonadeStand
         
 
         //Member Methods (Can Do)
-
+        public static int GetIntInput(string Prompt)
+        {
+            int result = 0;
+            Console.WriteLine(Prompt);
+            try
+            {
+                result = int.Parse(Console.ReadLine());
+            }
+            catch
+            {
+                Console.WriteLine("Invalid");
+                return GetIntInput(Prompt);
+            }
+            return result;
+        }
+      
+        public static int GetIntInput(string Prompt1, string Prompt2)
+        {
+            int result = 0;
+            Console.WriteLine($"{ Prompt1}{Prompt2}");
+            try
+            {
+                result = int.Parse(Console.ReadLine());
+            }
+            catch
+            {
+                Console.WriteLine("Invalid");
+                return GetIntInput(Prompt1, Prompt2);
+            }
+            return result;
+        }
+        public static double GetDoubleInput(string prompt)
+        {
+            double result = 0.00;
+            Console.WriteLine(prompt);
+            try
+            {
+                result = double.Parse(Console.ReadLine());
+            }
+            catch
+            {
+                Console.WriteLine("Invalid");
+                return GetIntInput(prompt);
+            }
+            return result;
+        }
         public static int GetUserDays()
         {
-            Console.WriteLine("Please choose how many days you would like to play.");
-            int userInput = int.Parse(Console.ReadLine());
+            int userInput = GetIntInput("Please choose how many days you would like to play.");
             return userInput;
         }
         public static string GetUserReplay()
@@ -31,27 +75,23 @@ namespace lemonadeStand
         }
         public static int GetUserIngredientLemons()
         {
-            Console.WriteLine("Choose the ingredients you would like to use");
-            Console.WriteLine("How many lemons would you like to use?");
-            int LemonChoice = int.Parse(Console.ReadLine());
+            int LemonChoice = GetIntInput("Choose the ingredients you would like to use", "How many lemons would you like to use?");
             return LemonChoice;
         }
         public static int GetUserIngredientsSugar()
         {
-            Console.WriteLine("How many cups of sugar would you like to use?");
-            int SugarChoice = int.Parse(Console.ReadLine());
+            int SugarChoice = GetIntInput("How many cups of sugar would you like to use?");
             return SugarChoice;
         }
         public static int GetUserIngredientIce()
         {
-            Console.WriteLine("How many ice cubes per drink would you like to use?");
-            int IceChoice = int.Parse(Console.ReadLine());
+            int IceChoice = GetIntInput("How many ice cubes per drink would you like to use?");
             return IceChoice;
         }
         public static double GetUserPrice()
         {
-            Console.WriteLine("How much would you like to charge per cup of lemonade?");
-            double UserPrice = double.Parse(Console.ReadLine());
+
+            double UserPrice = GetDoubleInput("How much would you like to charge per cup of lemonade?");
             return UserPrice;
         }
     }

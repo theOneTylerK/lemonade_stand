@@ -44,22 +44,22 @@ namespace lemonadeStand
             {
                 case 0:
                     Console.WriteLine("Adult");
-                    player.sales += adult.BuyLemonade(lemonadePrice, day);
+                    player.sales += adult.BuyLemonade(lemonadePrice, day, rng);
                     return adult;
                     break;
                 case 1:
                     Console.WriteLine("Child");
-                    player.sales += child.BuyLemonade(lemonadePrice, day);
+                    player.sales += child.BuyLemonade(lemonadePrice, day, rng);
                     return child;
                     break;
                 case 2:
                     Console.WriteLine("Senior");
-                    player.sales += senior.BuyLemonade(lemonadePrice, day);
+                    player.sales += senior.BuyLemonade(lemonadePrice, day, rng);
                     return senior;
                     break;
                 default:
                     Console.WriteLine("Adult");
-                    player.sales += adult.BuyLemonade(lemonadePrice, day);
+                    player.sales += adult.BuyLemonade(lemonadePrice, day, rng);
                     return adult;
                     break;
                     

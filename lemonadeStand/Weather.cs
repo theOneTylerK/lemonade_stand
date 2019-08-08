@@ -13,7 +13,6 @@ namespace lemonadeStand
         public int actualTemperature;
         public string forcastOvercast;
         public string actualOvercast;
-        //Random rng = new Random();
         List<string> overcast = new List<string>();
         
 

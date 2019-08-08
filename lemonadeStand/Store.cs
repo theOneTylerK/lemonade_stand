@@ -27,9 +27,7 @@ namespace lemonadeStand
 
         public int SellItem(Player player, string itemName, double itemPrice)
         {
-
-            Console.WriteLine($"Please enter how many {itemName} you would like to buy.");
-            int itemToPurchase = int.Parse(Console.ReadLine());
+            int itemToPurchase = UserInterface.GetIntInput($"Please enter how many {itemName} you would like to buy.");
             double totalPrice = itemToPurchase * itemPrice;
 
             if(player.Cash < totalPrice)
@@ -42,7 +40,6 @@ namespace lemonadeStand
                 player.Cash -= totalPrice;
                 cart += totalPrice;
                 DisplayMoneySpent(totalPrice, player.Cash);
-                
             }
             
 
