@@ -32,7 +32,7 @@
         public abstract double SetPrice();
         public abstract double TrackExpenses(Store store);
 
-        public abstract void DepositSales();
+       
 
     }
 

@@ -13,7 +13,7 @@ namespace lemonadeStand
         public int actualTemperature;
         public string forcastOvercast;
         public string actualOvercast;
-        Random rng = new Random();
+        //Random rng = new Random();
         List<string> overcast = new List<string>();
         
 
@@ -35,7 +35,7 @@ namespace lemonadeStand
 
 
         //member methods (Can Do)
-        public int ChooseTemperature(int min, int max)
+        public int ChooseTemperature(Random rng, int min, int max)
         {
 
             int TempChoice = rng.Next(min, max);
@@ -43,7 +43,7 @@ namespace lemonadeStand
 
         }
 
-        public string ChooseOvercast()
+        public string ChooseOvercast(Random rng)
         {
             int CurrentOvercast = rng.Next(overcast.Count);
             string OvercastChoice = CurrentOvercast.ToString();
@@ -65,25 +65,25 @@ namespace lemonadeStand
                     OvercastChoice = "Rainy";
                     break;
                 default:
-                    ChooseOvercast();
+                    ChooseOvercast(rng);
                     break;
 
             }
             return OvercastChoice;
         }
 
-        public void GetWeatherForcast()
+        public void GetWeatherForcast(Random rng)
         {
-            forcastOvercast = ChooseOvercast();
-            forcastTemperature = ChooseTemperature(50, 99);
+            forcastOvercast = ChooseOvercast(rng);
+            forcastTemperature = ChooseTemperature(rng, 50, 99);
             DisplayWeatherForcast();
             Console.ReadLine();
         }
 
-        public void GetActualWeather()
+        public void GetActualWeather(Random rng)
         {
             actualOvercast = forcastOvercast;
-            actualTemperature = ChooseTemperature(forcastTemperature -5, forcastTemperature + 6);
+            actualTemperature = ChooseTemperature(rng, forcastTemperature -5, forcastTemperature + 6);
             DisplayActualWeather();
             Console.ReadLine();
             

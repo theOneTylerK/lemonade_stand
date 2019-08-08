@@ -28,19 +28,19 @@ namespace lemonadeStand
         }
 
         //member methods (Can Do)
-        public void ShowActualWeather()
+        public void ShowActualWeather(Random rng)
         {
-            weather.GetActualWeather();
+            weather.GetActualWeather(rng);
         }
 
-        public void ShowWeatherForcast()
+        public void ShowWeatherForcast(Random rng)
         {
-            weather.GetWeatherForcast();
+            weather.GetWeatherForcast(rng);
         }
 
         public Customer GenerateCustomers(double lemonadePrice, Player player, Day day)
         {
-
+            int x = UserInterface.GenerateRandomNumber(0, customers.Count);
             int PotentialCustomer = rng.Next(customers.Count);
             switch (PotentialCustomer)
             {

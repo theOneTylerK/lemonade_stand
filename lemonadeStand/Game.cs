@@ -93,14 +93,14 @@ namespace lemonadeStand
 
             foreach (Day day in days)
             {
-                day.weather.GetWeatherForcast();
+                day.weather.GetWeatherForcast(rng);
                 store.SellItems(player);
                 player.DisplayRecipe(player.ChooseIngredientsLems(), player.ChooseIngredientsSug(), player.ChooseIngredientsIce());
 
-                day.weather.GetActualWeather();
+                day.weather.GetActualWeather(rng);
                 var price = player.SetPrice();
                 int index = 0;
-            while(index < 100)
+                while(index < 100)
                 {
                     day.GenerateCustomers(price, player, day);
                     index++;
@@ -109,7 +109,7 @@ namespace lemonadeStand
                         break;
                     }
                 }
-                player.DepositSales();
+               
                 TrackDailyMoney();
                 ReportResults();
                 store.EmptyCart();
