@@ -27,7 +27,6 @@ namespace lemonadeStand
 
         public int SellItem(Player player, string itemName, double itemPrice)
         {
-            int x = UserInterface.GenerateRandomNumber(1, 11);
 
             Console.WriteLine($"Please enter how many {itemName} you would like to buy.");
             int itemToPurchase = int.Parse(Console.ReadLine());

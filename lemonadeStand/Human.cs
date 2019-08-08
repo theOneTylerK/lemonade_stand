@@ -22,17 +22,19 @@ namespace lemonadeStand
         //Member Methods (Can Do)
        public override int ChooseIngredientsLems()
         {
-            Console.WriteLine("Choose the ingredients you would like to use");
-            Console.WriteLine("How many lemons would you like to use?");
-            int LemonChoice = int.Parse(Console.ReadLine());
+            //Console.WriteLine("Choose the ingredients you would like to use");
+            //Console.WriteLine("How many lemons would you like to use?");
+            //int LemonChoice = int.Parse(Console.ReadLine());
+            int LemonChoice = UserInterface.GetUserIngredientLemons();
             inventory.stockLemons -= LemonChoice;
             inventory.DisplayInventory(inventory.stockLemons, "lemons");
             return LemonChoice;
         }
         public override int ChooseIngredientsSug()
         {
-            Console.WriteLine("How many cups of sugar would you like to use?");
-            int SugarChoice = int.Parse(Console.ReadLine());
+            //Console.WriteLine("How many cups of sugar would you like to use?");
+            //int SugarChoice = int.Parse(Console.ReadLine());
+            int SugarChoice = UserInterface.GetUserIngredientsSugar();
             inventory.stockSugar -= SugarChoice;
             inventory.DisplayInventory(inventory.stockSugar, "sugar");
             return SugarChoice;
@@ -40,8 +42,9 @@ namespace lemonadeStand
 
         public override int ChooseIngredientsIce()
         {
-            Console.WriteLine("How many ice cubes per drink would you like to use?");
-            int IceChoice = int.Parse(Console.ReadLine());
+            //Console.WriteLine("How many ice cubes per drink would you like to use?");
+            //int IceChoice = int.Parse(Console.ReadLine());
+            int IceChoice = UserInterface.GetUserIngredientIce();
             inventory.stockIce -= IceChoice;
             inventory.DisplayInventory(inventory.stockIce, "ice cubes");
             return IceChoice;
@@ -55,8 +58,9 @@ namespace lemonadeStand
         }
         public override double SetPrice()
         {
-            Console.WriteLine("How much would you like to charge per cup of lemonade?");
-            double UserPrice = double.Parse(Console.ReadLine());
+            //Console.WriteLine("How much would you like to charge per cup of lemonade?");
+            //double UserPrice = double.Parse(Console.ReadLine());
+            double UserPrice = UserInterface.GetUserPrice();
             return UserPrice;
            
         }

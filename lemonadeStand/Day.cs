@@ -9,7 +9,6 @@ namespace lemonadeStand
     class Day
     {
         //member variables (Has A)
-        Random rng = new Random();
         public Weather weather = new Weather();
         Customer adult = new CustomerAdult();
         Customer child = new CustomerChild();
@@ -38,9 +37,8 @@ namespace lemonadeStand
             weather.GetWeatherForcast(rng);
         }
 
-        public Customer GenerateCustomers(double lemonadePrice, Player player, Day day)
+        public Customer GenerateCustomers(double lemonadePrice, Player player, Day day, Random rng)
         {
-            int x = UserInterface.GenerateRandomNumber(0, customers.Count);
             int PotentialCustomer = rng.Next(customers.Count);
             switch (PotentialCustomer)
             {

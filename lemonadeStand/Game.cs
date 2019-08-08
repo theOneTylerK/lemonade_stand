@@ -38,9 +38,10 @@ namespace lemonadeStand
 
         public  void ReplayGame()
         {
-            Console.WriteLine("Game Over. To play again with the same amount of days type 'yes'"
-                + Environment.NewLine + "to quit type 'quit'.");
-            string UserInput = Console.ReadLine();
+            //Console.WriteLine("Game Over. To play again type 'yes'"
+            //    + Environment.NewLine + "to quit type 'quit'.");
+            //string UserInput = Console.ReadLine();
+            string UserInput = UserInterface.GetUserReplay();
             switch (UserInput)
             {
                 case "yes":
@@ -102,7 +103,7 @@ namespace lemonadeStand
                 int index = 0;
                 while(index < 100)
                 {
-                    day.GenerateCustomers(price, player, day);
+                    day.GenerateCustomers(price, player, day, rng);
                     index++;
                     if (index == 5)
                     {
