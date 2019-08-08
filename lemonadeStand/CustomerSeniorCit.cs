@@ -13,29 +13,102 @@ namespace lemonadeStand
         //Constructor (Spawner)
         public CustomerSeniorCit()
         {
-            this.spendingCash = 1.25;
-            this.WillBuy = false;
+            this.spendingCash = 0.50;
+            this.WillBuyChance = 50;
         }
 
         //member methods (Can Do)
-        public override double BuyLemonade(double lemonadePrice)
+        public override double BuyLemonade(double lemonadePrice, Day day)
         {
-            if(lemonadePrice > spendingCash)
+            if (lemonadePrice > spendingCash)
             {
-                WillBuy = false;
+
                 double sellprice = 0.00;
                 Console.WriteLine("Too Expensive");
                 return sellprice;
             }
             else
             {
-                WillBuy = true;
-                Console.WriteLine("Yum");
-                return lemonadePrice;
+
+                return DecideToPurchase(day, lemonadePrice);
+                
 
             }
-
-            
         }
-    }
+
+        public override double DecideToPurchase(Day day, double sellPrice)
+        {
+            if (day.weather.actualTemperature >= 70)
+            {
+                int lowerThreshold = 0;
+                int upperThreshold = 101;
+                WillBuyChance = 60;
+                int purchaseChance = rng.Next(lowerThreshold, upperThreshold);
+                if (purchaseChance <= WillBuyChance)
+                {
+                    Console.WriteLine("Yum");
+                    return sellPrice;
+                }
+                else
+                {
+                    WillBuyChance = 50;
+                    sellPrice = 0.00;
+                    return sellPrice;
+                }
+
+            }
+            if (day.weather.actualOvercast == "sunny")
+            {
+                int lowerThreshold = 0;
+                int upperThreshold = 101;
+                WillBuyChance = 60;
+                int purchaseChance = rng.Next(lowerThreshold, upperThreshold);
+                if (purchaseChance <= WillBuyChance)
+                {
+                    Console.WriteLine("Yum");
+                    return sellPrice;
+                }
+                else
+                {
+                    
+                    return 0.00;
+                }
+            }
+            else if (day.weather.actualOvercast == "rainy")
+            {
+                int lowerThreshold = 0;
+                int upperThreshold = 101;
+                WillBuyChance = 30;
+                int purchaseChance = rng.Next(lowerThreshold, upperThreshold);
+                if (purchaseChance <= WillBuyChance)
+                {
+                    Console.WriteLine("Yum");
+                    return sellPrice;
+                }
+                else
+                {
+                    return 0.00;
+
+                }
+            }
+            else
+            {
+                WillBuyChance = 50;
+                int lowerThreshold = 0;
+                int upperThreshold = 101;
+                int purchaseChance = rng.Next(lowerThreshold, upperThreshold);
+                if (purchaseChance <= WillBuyChance)
+                {
+                    Console.WriteLine("Yum");
+                    return sellPrice;
+                }
+                else
+                {
+                    Console.WriteLine("Not Today, buddy");
+                    return 0.00;
+                }
+                
+            }
+        }
+    }  
 }

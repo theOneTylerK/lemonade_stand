@@ -38,7 +38,7 @@ namespace lemonadeStand
             weather.GetWeatherForcast();
         }
 
-        public Customer GenerateCustomers(double lemonadePrice, Player player)
+        public Customer GenerateCustomers(double lemonadePrice, Player player, Day day)
         {
 
             int PotentialCustomer = rng.Next(customers.Count);
@@ -46,22 +46,22 @@ namespace lemonadeStand
             {
                 case 0:
                     Console.WriteLine("Adult");
-                    player.sales += adult.BuyLemonade(lemonadePrice);
+                    player.sales += adult.BuyLemonade(lemonadePrice, day);
                     return adult;
                     break;
                 case 1:
                     Console.WriteLine("Child");
-                    player.sales += child.BuyLemonade(lemonadePrice);
+                    player.sales += child.BuyLemonade(lemonadePrice, day);
                     return child;
                     break;
                 case 2:
                     Console.WriteLine("Senior");
-                    player.sales += senior.BuyLemonade(lemonadePrice);
+                    player.sales += senior.BuyLemonade(lemonadePrice, day);
                     return senior;
                     break;
                 default:
                     Console.WriteLine("Adult");
-                    player.sales += adult.BuyLemonade(lemonadePrice);
+                    player.sales += adult.BuyLemonade(lemonadePrice, day);
                     return adult;
                     break;
                     

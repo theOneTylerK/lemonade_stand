@@ -17,10 +17,10 @@ namespace lemonadeStand
         //Constructor (Spawner)
         public Store()
         {
-            this.lemonsPrice = 0.15;
-            this.sugarPrice = 0.10;
-            this.cupsPrice = 0.05;
-            this.icePrice = 0.01;
+            this.lemonsPrice = 1.00;
+            this.sugarPrice = 0.75;
+            this.cupsPrice = 0.15;
+            this.icePrice = 0.10;
             this.cart = 0.00;
 
         }

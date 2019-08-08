@@ -75,8 +75,9 @@ namespace lemonadeStand
 
         public void GetDays()
         {
-            Console.WriteLine("Please choose how many days you would like to play.");
-            int userInput = int.Parse(Console.ReadLine());
+            //Console.WriteLine("Please choose how many days you would like to play.");
+            //int userInput = int.Parse(Console.ReadLine());
+            int userInput = UserInterface.GetUserDays();
             for (int i =0; i < userInput; i++)
             {
                 Day day = new Day();
@@ -101,7 +102,7 @@ namespace lemonadeStand
                 int index = 0;
             while(index < 100)
                 {
-                    day.GenerateCustomers(price, player);
+                    day.GenerateCustomers(price, player, day);
                     index++;
                     if (index == 100)
                     {
