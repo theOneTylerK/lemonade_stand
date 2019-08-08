@@ -34,7 +34,7 @@ namespace lemonadeStand
         public static int GetIntInput(string Prompt1, string Prompt2)
         {
             int result = 0;
-            Console.WriteLine($"{ Prompt1}{Prompt2}");
+            Console.WriteLine($"{ Prompt1}" + Environment.NewLine + $"{Prompt2}");
             try
             {
                 result = int.Parse(Console.ReadLine());

@@ -23,31 +23,67 @@ namespace lemonadeStand
        public override int ChooseIngredientsLems()
         {
             int LemonChoice = UserInterface.GetUserIngredientLemons();
-            inventory.stockLemons -= LemonChoice;
-            inventory.DisplayInventory(inventory.stockLemons, "lemons");
+            if(LemonChoice > inventory.stockLemons)
+            {
+                Console.WriteLine("You don't have enough lemons to do that");
+                ChooseIngredientsLems();
+            }
+            else if(LemonChoice == 0)
+            {
+                Console.WriteLine("You can't make lemonade without lemons");
+                ChooseIngredientsSug();
+            }
+            else
+            {
+                inventory.stockLemons -= LemonChoice;
+                inventory.DisplayInventory(inventory.stockLemons, "lemons");
+            }
+           
             return LemonChoice;
         }
         public override int ChooseIngredientsSug()
         {
             int SugarChoice = UserInterface.GetUserIngredientsSugar();
-            inventory.stockSugar -= SugarChoice;
-            inventory.DisplayInventory(inventory.stockSugar, "sugar");
+            if(SugarChoice > inventory.stockSugar)
+            {
+                Console.WriteLine("You don't have enough sugar to do that");
+                ChooseIngredientsSug();
+            }
+            else if(SugarChoice == 0)
+            {
+                Console.WriteLine("You need sugar to make lemonade");
+                ChooseIngredientsSug();
+            }
+            else
+            {
+                inventory.stockSugar -= SugarChoice;
+                inventory.DisplayInventory(inventory.stockSugar, "sugar");
+            }
+            
             return SugarChoice;
         }
 
         public override int ChooseIngredientsIce()
         {
             int IceChoice = UserInterface.GetUserIngredientIce();
-            inventory.stockIce -= IceChoice;
-            inventory.DisplayInventory(inventory.stockIce, "ice cubes");
+            if(IceChoice > inventory.stockIce)
+            {
+                Console.WriteLine("You don't have enough ice to do that");
+                ChooseIngredientsIce();
+            }
+            else
+            {
+                inventory.stockIce -= IceChoice;
+                inventory.DisplayInventory(inventory.stockIce, "ice cubes");
+            }
             return IceChoice;
         }
 
         public override void DisplayRecipe(int lemonsAmount, int sugarAmount, int iceAmount)
         {
-         
-            Console.WriteLine($"Your final recipe is {lemonsAmount} lemons, {sugarAmount} cups of sugar, and {iceAmount} cubes of ice per cup");
-          
+           
+                Console.WriteLine($"Your final recipe is {lemonsAmount} lemons, {sugarAmount} cups of sugar, and {iceAmount} cubes of ice per cup");
+           
         }
         public override double SetPrice()
         {

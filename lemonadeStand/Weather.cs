@@ -14,6 +14,7 @@ namespace lemonadeStand
         public string forcastOvercast;
         public string actualOvercast;
         List<string> overcast = new List<string>();
+   
         
 
 
@@ -25,7 +26,6 @@ namespace lemonadeStand
             overcast.Add("Cloudy");
             overcast.Add("Partly Cloudy");
             overcast.Add("Rainy");
-
            
             
         }

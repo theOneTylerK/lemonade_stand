@@ -22,8 +22,8 @@ namespace lemonadeStand
             
         }
         //member methods (Can Do)
-        public abstract double BuyLemonade(double lemonadePrice, Day day, Random rng);
-        public abstract double DecideToPurchase(Day day, double sellPrice, Random rng);
+        public abstract double BuyLemonade(double lemonadePrice, Day day, Random rng, Player player);
+        public abstract double DecideToPurchase(Day day, double sellPrice, Random rng, Player player);
 
     }
 }

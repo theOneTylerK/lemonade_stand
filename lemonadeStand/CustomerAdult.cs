@@ -18,7 +18,7 @@ namespace lemonadeStand
         }
 
         //member methods (Can Do)
-        public override double BuyLemonade(double lemonadePrice, Day day, Random rng)
+        public override double BuyLemonade(double lemonadePrice, Day day, Random rng, Player player)
         {
             if (lemonadePrice > spendingCash)
             {
@@ -30,12 +30,12 @@ namespace lemonadeStand
             else
             {
 
-                return DecideToPurchase(day, lemonadePrice, rng);
+                return DecideToPurchase(day, lemonadePrice, rng, player);
                
             }
         }
 
-        public override double DecideToPurchase(Day day, double sellPrice, Random rng)
+        public override double DecideToPurchase(Day day, double sellPrice, Random rng, Player player)
         {
             if (day.weather.actualTemperature >= 78)
             {
@@ -45,8 +45,19 @@ namespace lemonadeStand
                 int purchaseChance = rng.Next(lowerThreshold, upperThreshold);
                 if (purchaseChance <= WillBuyChance)
                 {
-                    Console.WriteLine("Yum");
-                    return sellPrice;
+                    if (player.inventory.stockCups <= 0 || player.inventory.stockIce <= 0)
+                    {
+                        Console.WriteLine("Sold Out");
+                        return 0.00;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Yum");
+                        var IceUse = player.ChooseIngredientsIce();
+                        player.inventory.stockCups -= 1;
+                        player.inventory.stockIce -= IceUse;
+                        return sellPrice;
+                    }
                 }
                 else
                 {
@@ -58,13 +69,24 @@ namespace lemonadeStand
             if (day.weather.actualOvercast == "Sunny")
             {
                 int lowerThreshold = 0;
-                int upperThreshold = 101;
+                var upperThreshold = 101;
                 WillBuyChance = 40;
                 int purchaseChance = rng.Next(lowerThreshold, upperThreshold);
                 if (purchaseChance <= WillBuyChance)
                 {
-                    Console.WriteLine("Yum");
-                    return sellPrice;
+                    if (player.inventory.stockCups <= 0 || player.inventory.stockIce <= 0)
+                    {
+                        Console.WriteLine("Sold Out");
+                        return 0.00;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Yum");
+                        var IceUse = player.ChooseIngredientsIce();
+                        player.inventory.stockCups -= 1;
+                        player.inventory.stockIce -= IceUse;
+                        return sellPrice;
+                    }
                 }
                 else
                 {
@@ -80,8 +102,19 @@ namespace lemonadeStand
                 int purchaseChance = rng.Next(lowerThreshold, upperThreshold);
                 if (purchaseChance <= WillBuyChance)
                 {
-                    Console.WriteLine("Yum");
-                    return sellPrice;
+                    if (player.inventory.stockCups <= 0 || player.inventory.stockIce <= 0)
+                    {
+                        Console.WriteLine("Sold Out");
+                        return 0.00;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Yum");
+                        var IceUse = player.ChooseIngredientsIce();
+                        player.inventory.stockCups -= 1;
+                        player.inventory.stockIce -= IceUse;
+                        return sellPrice;
+                    }
                 }
                 else
                 {
@@ -97,8 +130,19 @@ namespace lemonadeStand
                 int purchaseChance = rng.Next(lowerThreshold, upperThreshold);
                 if (purchaseChance <= WillBuyChance)
                 {
-                    Console.WriteLine("Yum");
-                    return sellPrice;
+                    if (player.inventory.stockCups <= 0 || player.inventory.stockIce <= 0)
+                    {
+                        Console.WriteLine("Sold Out");
+                        return 0.00;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Yum");
+                        var IceUse = player.ChooseIngredientsIce();
+                        player.inventory.stockCups -= 1;
+                        player.inventory.stockIce -= IceUse;
+                        return sellPrice;
+                    }
                 }
                 else
                 {
