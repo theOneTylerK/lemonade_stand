@@ -65,7 +65,7 @@ namespace lemonadeStand
             expenses = store.cart;
             return expenses;
         }
-        public override void DepsoitSales()
+        public override void DepositSales()
         {
             Cash += sales;
         }
