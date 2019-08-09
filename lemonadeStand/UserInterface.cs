@@ -64,7 +64,7 @@ namespace lemonadeStand
        
         public static string GetUserReplay()
         {
-            Console.WriteLine("Game Over. To play again type 'yes'"
+            Console.WriteLine("To play again type 'yes'"
                 + Environment.NewLine + "to quit type 'quit'.");
             string UserInput = Console.ReadLine();
             return UserInput;

@@ -80,6 +80,20 @@ namespace lemonadeStand
             }
        
         }
+        public void EndGame()
+        {
+            double StartMoney = 20.00;
+            double CashMoney = player.Cash - StartMoney;
+            if(CashMoney < StartMoney)
+            {
+                Console.WriteLine($"Too bad. You took a loss. You started with ${StartMoney}. You finished with ${player.Cash}. You venture cost you ${CashMoney}");
+            }
+            else
+            {
+                Console.WriteLine($"Congratulations. You started with ${StartMoney}. You finished with ${player.Cash}. You venture made ${CashMoney}");
+            }
+            
+        }
 
         public void StartGame()
         {
@@ -123,6 +137,7 @@ namespace lemonadeStand
                 }
 
             }
+            EndGame();
             ReplayGame();
         }
 
