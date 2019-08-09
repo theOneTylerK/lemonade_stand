@@ -22,7 +22,7 @@ namespace lemonadeStand
         //Member Methods (Can Do)
        public override int ChooseIngredientsLems()
         {
-            int LemonChoice = UserInterface.GetIntInput("Choose the ingredients you would like to use", "How many lemons would you like to use?");
+            int LemonChoice = UserInterface.GetIntInput("Choose the ingredients you would like to use", "How many lemons would you like to use per picther?");
             if(LemonChoice > inventory.stockLemons)
             {
                 Console.WriteLine("You don't have enough lemons to do that");
@@ -64,7 +64,7 @@ namespace lemonadeStand
 
         public override int ChooseIngredientsIce()
         {
-            int IceChoice = UserInterface.GetIntInput("Choose the ingredients you would like to use", "How many ice cubes would you like to use per cup?");
+            int IceChoice = UserInterface.GetIntInput("How many ice cubes would you like to use per cup?");
             if(IceChoice > inventory.stockIce)
             {
                 Console.WriteLine("You don't have enough ice to do that");
@@ -77,6 +77,22 @@ namespace lemonadeStand
             }
             return IceChoice;
         }
+        //public void DeclareBankruptcy()
+        //{
+        //    Console.WriteLine("You appear to have fallen on hard times. Would you like to declare Bankruptcy? Type 'yes' or 'no'");
+        //    string userInput = Console.ReadLine().ToLower();
+        //    switch (userInput)
+        //    {
+        //        case "yes":
+        //            game.EndGame();
+        //            break;
+        //        case "no":
+        //            Console.WriteLine("I beg you to reconsider.");
+        //            DeclareBankruptcy(game);
+        //            break;
+        //    }
+            
+        //}
 
         public override void DisplayRecipe(int lemonsAmount, int sugarAmount, int iceAmount)
         {

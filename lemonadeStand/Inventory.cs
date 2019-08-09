@@ -27,13 +27,29 @@ namespace lemonadeStand
         //member methods (Can Do)
         public void DisplayInventory(double stockItem, string itemName)
         {
-            Console.WriteLine($"You have {stockItem} {itemName} in your inventory");
+            Console.WriteLine($"You added {stockItem} {itemName} to your inventory");
             
             
         }
        
         public void DisplayInventory(double StockItem, string itemName, double StockItem2, string itemName2, double StockItem3, string itemName3, double StockItem4, string itemName4)
         {
+            if(StockItem < 0)
+            {
+                StockItem = 0;
+            }
+            if (StockItem2 < 0)
+            {
+                StockItem2 = 0;
+            }
+            if (StockItem3 < 0)
+            {
+                StockItem3 = 0;
+            }
+            if (StockItem4 < 0)
+            {
+                StockItem4 = 0;
+            }
             Console.WriteLine($"You currently have" + Environment.NewLine +
                 $"{StockItem} {itemName}" + Environment.NewLine +
                 $"{StockItem2} {itemName2}" +Environment.NewLine +

@@ -55,18 +55,18 @@ namespace lemonadeStand
 
         public  void ReportResults()
         {
-            Console.WriteLine($"your total cash is now {player.Cash}");
+            Console.WriteLine($"your total cash is now ${player.Cash}");
 
         }
 
         public  void TrackDailyMoney()
         {
             double dailyExpenses = Math.Round(player.TrackExpenses(store));
-            Console.WriteLine($"Your daily expenses were {dailyExpenses}");
+            Console.WriteLine($"Your daily expenses were ${dailyExpenses}");
             double dailyIncome = player.sales;
-            Console.WriteLine($"Your daily income was {dailyIncome}");
+            Console.WriteLine($"Your daily income was ${dailyIncome}");
             double endResult = dailyIncome - dailyExpenses;
-            Console.WriteLine($"Your total daily profit is {endResult}");
+            Console.WriteLine($"Your total daily profit is ${endResult}");
             player.Cash += endResult;
         }
 
@@ -87,10 +87,12 @@ namespace lemonadeStand
             if(CashMoney < StartMoney)
             {
                 Console.WriteLine($"Too bad. You took a loss. You started with ${StartMoney}. You finished with ${player.Cash}. You venture cost you ${CashMoney}");
+                ReplayGame();
             }
             else
             {
                 Console.WriteLine($"Congratulations. You started with ${StartMoney}. You finished with ${player.Cash}. You venture made ${CashMoney}");
+                ReplayGame();
             }
             
         }
@@ -107,6 +109,11 @@ namespace lemonadeStand
 
             foreach (Day day in days)
             {
+                if (player.Cash < 0.49 || (player.inventory.stockLemons >= 1 && player.inventory.stockSugar >= 1))
+                {
+                    Console.WriteLine("You can't afford to buy enough supplies to make more lemonade.");
+                    break;
+                }
                 day.weather.GetWeatherForcast(rng);
                 player.DisplayPlayerCash();
                 store.SellItems(player);
@@ -138,7 +145,6 @@ namespace lemonadeStand
 
             }
             EndGame();
-            ReplayGame();
         }
 
     }

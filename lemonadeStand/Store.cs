@@ -27,12 +27,17 @@ namespace lemonadeStand
 
         public int SellItem(Player player, string itemName, double itemPrice)
         {
-            int itemToPurchase = UserInterface.GetIntInput($"Please enter how many {itemName} you would like to buy. They cost {itemPrice} a piece");
+            int itemToPurchase = UserInterface.GetIntInput($"Please enter how many {itemName} you would like to buy. They cost ${itemPrice} a piece");
             double totalPrice = itemToPurchase * itemPrice;
 
             if(player.Cash < totalPrice)
             {
                 Console.WriteLine("You don't have enough money to buy that. Please try again.");
+                SellItem(player, itemName, itemPrice);
+            }
+            else if(totalPrice < 0)
+            {
+                Console.WriteLine("You can't buy negative supplies");
                 SellItem(player, itemName, itemPrice);
             }
             else
@@ -67,8 +72,8 @@ namespace lemonadeStand
         {
 
 
-            Console.WriteLine("You spent: " + moneySpent
-                + Environment.NewLine + "Your total cash is " + playerCash);
+            Console.WriteLine($"You spent: ${moneySpent}"
+                + Environment.NewLine + $"Your total cash is ${playerCash}");
         }
         public double EmptyCart()
         {
