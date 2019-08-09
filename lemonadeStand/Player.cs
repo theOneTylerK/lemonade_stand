@@ -8,6 +8,7 @@
         public double expenses;
         public Inventory inventory = new Inventory();
         public double sales;
+        public Recipe recipe = new Recipe();
 
 
         //Constructor (Spawner)
@@ -18,6 +19,7 @@
             this.inventory = inventory;
             this.expenses = expenses;
             this.sales = 0.00;
+            this.recipe = recipe;
 
         }
 
@@ -31,6 +33,7 @@
 
         public abstract double SetPrice();
         public abstract double TrackExpenses(Store store);
+        public abstract void DisplayPlayerCash();
 
        
 

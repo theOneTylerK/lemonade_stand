@@ -9,12 +9,12 @@ namespace lemonadeStand
     class Human : Player
     {
         //member variables (Has A)
-        
 
         //Constructor (Spawner)
         public Human()
         {
             expenses = 0.00;
+           
            
             
         }
@@ -22,7 +22,7 @@ namespace lemonadeStand
         //Member Methods (Can Do)
        public override int ChooseIngredientsLems()
         {
-            int LemonChoice = UserInterface.GetUserIngredientLemons();
+            int LemonChoice = UserInterface.GetIntInput("Choose the ingredients you would like to use", "How many lemons would you like to use?");
             if(LemonChoice > inventory.stockLemons)
             {
                 Console.WriteLine("You don't have enough lemons to do that");
@@ -31,19 +31,19 @@ namespace lemonadeStand
             else if(LemonChoice == 0)
             {
                 Console.WriteLine("You can't make lemonade without lemons");
-                ChooseIngredientsSug();
+                ChooseIngredientsLems();
             }
             else
             {
-                inventory.stockLemons -= LemonChoice;
-                inventory.DisplayInventory(inventory.stockLemons, "lemons");
+                recipe.AddLemons(inventory, LemonChoice);
+
             }
            
             return LemonChoice;
         }
         public override int ChooseIngredientsSug()
         {
-            int SugarChoice = UserInterface.GetUserIngredientsSugar();
+            int SugarChoice = UserInterface.GetIntInput("How many cups of sugar would you like to use per pitcher?");
             if(SugarChoice > inventory.stockSugar)
             {
                 Console.WriteLine("You don't have enough sugar to do that");
@@ -56,8 +56,7 @@ namespace lemonadeStand
             }
             else
             {
-                inventory.stockSugar -= SugarChoice;
-                inventory.DisplayInventory(inventory.stockSugar, "sugar");
+                recipe.AddSugar(inventory, SugarChoice);
             }
             
             return SugarChoice;
@@ -65,7 +64,7 @@ namespace lemonadeStand
 
         public override int ChooseIngredientsIce()
         {
-            int IceChoice = UserInterface.GetUserIngredientIce();
+            int IceChoice = UserInterface.GetIntInput("Choose the ingredients you would like to use", "How many ice cubes would you like to use per cup?");
             if(IceChoice > inventory.stockIce)
             {
                 Console.WriteLine("You don't have enough ice to do that");
@@ -73,8 +72,8 @@ namespace lemonadeStand
             }
             else
             {
-                inventory.stockIce -= IceChoice;
-                inventory.DisplayInventory(inventory.stockIce, "ice cubes");
+
+                recipe.AddIce(inventory, IceChoice);
             }
             return IceChoice;
         }
@@ -87,7 +86,7 @@ namespace lemonadeStand
         }
         public override double SetPrice()
         {
-            double UserPrice = UserInterface.GetUserPrice();
+            double UserPrice = UserInterface.GetDoubleInput("How much would you like to charge per cup of lemonade?");
             return UserPrice;
            
         }
@@ -96,6 +95,10 @@ namespace lemonadeStand
             expenses = store.cart;
             return expenses;
         }
-        
+        public override void DisplayPlayerCash()
+        {
+            Console.WriteLine($"You have {Cash} dollars");
+        }
+
     }
 }

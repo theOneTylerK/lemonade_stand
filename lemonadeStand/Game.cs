@@ -72,7 +72,7 @@ namespace lemonadeStand
 
         public void GetDays()
         {
-            int userInput = UserInterface.GetUserDays();
+            int userInput = UserInterface.GetIntInput("Please choose how many days you would like to play.");
             for (int i =0; i < userInput; i++)
             {
                 Day day = new Day();
@@ -85,14 +85,18 @@ namespace lemonadeStand
         {
             GetDays();
 
-            //setup
+            player.inventory.stockSugar = 0;
+            player.inventory.stockLemons = 0;
+            player.inventory.stockIce = 0;
+            player.inventory.stockCups = 0;
+            player.Cash = 20.00;
 
             foreach (Day day in days)
             {
                 day.weather.GetWeatherForcast(rng);
+                player.DisplayPlayerCash();
                 store.SellItems(player);
                 player.DisplayRecipe(player.ChooseIngredientsLems(), player.ChooseIngredientsSug(), player.ChooseIngredientsIce());
-
                 day.weather.GetActualWeather(rng);
                 var price = player.SetPrice();
                 int index = 0;
@@ -104,12 +108,19 @@ namespace lemonadeStand
                     {
                         break;
                     }
+                   
                 }
                
                 TrackDailyMoney();
                 ReportResults();
                 store.EmptyCart();
                 Console.ReadLine();
+                if (player.Cash <= 0)
+                {
+                    Console.WriteLine("Game Over. You ran out of money.");
+                    Console.ReadLine();
+                    break;
+                }
 
             }
             ReplayGame();

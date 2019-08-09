@@ -13,7 +13,7 @@ namespace lemonadeStand
         //Constructor (Spawner)
         public CustomerChild()
         {
-            this.spendingCash = 0.20;
+            this.spendingCash = 0.30;
             this.WillBuyChance = 70;
         }
 
@@ -54,9 +54,8 @@ namespace lemonadeStand
                     else
                     {
                         Console.WriteLine("Yum");
-                        var IceUse = player.ChooseIngredientsIce();
                         player.inventory.stockCups -= 1;
-                        player.inventory.stockIce -= IceUse;
+                        player.inventory.stockIce -= player.recipe.icePerCup;
                         return sellPrice;
                     } 
                     
@@ -84,9 +83,8 @@ namespace lemonadeStand
                     else
                     {
                         Console.WriteLine("Yum");
-                        var IceUse = player.ChooseIngredientsIce();
                         player.inventory.stockCups -= 1;
-                        player.inventory.stockIce -= IceUse;
+                        player.inventory.stockIce -= player.recipe.icePerCup;
                         return sellPrice;
                     }
                 }
@@ -112,9 +110,8 @@ namespace lemonadeStand
                     else
                     {
                         Console.WriteLine("Yum");
-                        var IceUse = player.ChooseIngredientsIce();
                         player.inventory.stockCups -= 1;
-                        player.inventory.stockIce -= IceUse;
+                        player.inventory.stockIce -= player.recipe.icePerCup;
                         return sellPrice;
                     }
                 }

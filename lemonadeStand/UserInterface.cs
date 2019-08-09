@@ -61,11 +61,7 @@ namespace lemonadeStand
             }
             return result;
         }
-        public static int GetUserDays()
-        {
-            int userInput = GetIntInput("Please choose how many days you would like to play.");
-            return userInput;
-        }
+       
         public static string GetUserReplay()
         {
             Console.WriteLine("Game Over. To play again type 'yes'"
@@ -73,26 +69,6 @@ namespace lemonadeStand
             string UserInput = Console.ReadLine();
             return UserInput;
         }
-        public static int GetUserIngredientLemons()
-        {
-            int LemonChoice = GetIntInput("Choose the ingredients you would like to use", "How many lemons would you like to use?");
-            return LemonChoice;
-        }
-        public static int GetUserIngredientsSugar()
-        {
-            int SugarChoice = GetIntInput("How many cups of sugar would you like to use?");
-            return SugarChoice;
-        }
-        public static int GetUserIngredientIce()
-        {
-            int IceChoice = GetIntInput("How many ice cubes per drink would you like to use?");
-            return IceChoice;
-        }
-        public static double GetUserPrice()
-        {
-
-            double UserPrice = GetDoubleInput("How much would you like to charge per cup of lemonade?");
-            return UserPrice;
-        }
+       
     }
 }

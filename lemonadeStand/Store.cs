@@ -17,17 +17,17 @@ namespace lemonadeStand
         //Constructor (Spawner)
         public Store()
         {
-            this.lemonsPrice = 1.00;
-            this.sugarPrice = 0.75;
-            this.cupsPrice = 0.15;
-            this.icePrice = 0.10;
+            this.lemonsPrice = 0.21;
+            this.sugarPrice = 0.21;
+            this.cupsPrice = 0.05;
+            this.icePrice = 0.03;
             this.cart = 0.00;
 
         }
 
         public int SellItem(Player player, string itemName, double itemPrice)
         {
-            int itemToPurchase = UserInterface.GetIntInput($"Please enter how many {itemName} you would like to buy.");
+            int itemToPurchase = UserInterface.GetIntInput($"Please enter how many {itemName} you would like to buy. They cost {itemPrice} a piece");
             double totalPrice = itemToPurchase * itemPrice;
 
             if(player.Cash < totalPrice)
@@ -49,6 +49,7 @@ namespace lemonadeStand
         //member methods (Can Do)
         public void SellItems(Player player)
         {
+            player.inventory.DisplayInventory(player.inventory.stockLemons, " lemons", player.inventory.stockSugar, " sugar", player.inventory.stockCups, " cups", player.inventory.stockIce, " ice cubes");
             player.inventory.stockLemons += SellItem(player, "lemons", lemonsPrice);
             player.inventory.DisplayInventory(player.inventory.stockLemons, "lemons");
             player.inventory.stockSugar += SellItem(player, "cups of sugar", sugarPrice);
@@ -57,6 +58,7 @@ namespace lemonadeStand
             player.inventory.DisplayInventory(player.inventory.stockCups, "cups");
             player.inventory.stockIce += SellItem(player, "ice cubes", icePrice);
             player.inventory.DisplayInventory(player.inventory.stockIce, "ice");
+            player.inventory.DisplayInventory(player.inventory.stockLemons, " lemons", player.inventory.stockSugar, " sugar", player.inventory.stockCups, " cups", player.inventory.stockIce, " ice cubes");
             Console.ReadLine();
             
         }
