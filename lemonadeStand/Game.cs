@@ -135,7 +135,6 @@ namespace lemonadeStand
                 TrackDailyMoney();
                 ReportResults();
                 store.EmptyCart();
-                Console.ReadLine();
                 if (player.Cash <= 0)
                 {
                     Console.WriteLine("Game Over. You ran out of money.");

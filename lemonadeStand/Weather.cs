@@ -29,9 +29,6 @@ namespace lemonadeStand
            
             
         }
-        
-        
-
 
         //member methods (Can Do)
         public int ChooseTemperature(Random rng, int min, int max)
