@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{C1C65F50-823E-4945-9701-BF9E6161ADFD}</ProjectGuid>
+    <ProjectGuid>{413D1BC6-8853-4C10-ACAE-9790CB4A866E}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>lemonadeStand</RootNamespace>
-    <AssemblyName>lemonadeStand</AssemblyName>
+    <RootNamespace>LemonadeStand_Tyler</RootNamespace>
+    <AssemblyName>LemonadeStand_Tyler</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -43,8 +43,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Customer.cs" />
+    <Compile Include="CustomerAdult.cs" />
+    <Compile Include="CustomerChild.cs" />
+    <Compile Include="CustomerSeniorCit.cs" />
+    <Compile Include="Day.cs" />
+    <Compile Include="Game.cs" />
+    <Compile Include="Human.cs" />
+    <Compile Include="Inventory.cs" />
+    <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Recipe.cs" />
+    <Compile Include="Store.cs" />
+    <Compile Include="UserInterface.cs" />
+    <Compile Include="Weather.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

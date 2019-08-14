@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("lemonadeStand")]
+[assembly: AssemblyTitle("LemonadeStand_Tyler")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("lemonadeStand")]
+[assembly: AssemblyProduct("LemonadeStand_Tyler")]
 [assembly: AssemblyCopyright("Copyright ©  2019")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("c1c65f50-823e-4945-9701-bf9e6161adfd")]
+[assembly: Guid("413d1bc6-8853-4c10-acae-9790cb4a866e")]
 
 // Version information for an assembly consists of the following four values:
 //
